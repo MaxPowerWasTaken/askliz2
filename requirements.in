@@ -1,3 +1,8 @@
-lancedb==0.14.0
-llama-index==0.11.18
-rerankers==0.5.3
+lancedb>=0.14.0
+llama-index>=0.11.18
+rerankers>=0.5.3
+semchunk>=2.2.0
+sentence-transformers>=3.2.0
+tantivy>=0.22.0  # lancedb req for FTS
+unstructured>=0.16.0
+PyMuPDF>=1.24.11
