@@ -1,8 +1,11 @@
 lancedb>=0.14.0
 llama-index>=0.11.18
+prompt_toolkit>=3.0.48
+PyMuPDF>=1.24.11
 rerankers>=0.5.3
+rich>=13.9.3
 semchunk>=2.2.0
 sentence-transformers>=3.2.0
 tantivy>=0.22.0  # lancedb req for FTS
+typer>=0.12.5
 unstructured>=0.16.0
-PyMuPDF>=1.24.11
