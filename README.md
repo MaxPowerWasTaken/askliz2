@@ -19,53 +19,28 @@ pip install -r requirements.txt
 
 AskLiz2 currently provides a command-line interface (CLI) for either one-off queryies, or chatting with the document database. 
 
-### Currently Implemented
-run `python -m src.backend.main` to run the document ingestion / chunking / embedding / db-insertion / retrieval / display pipeline, for the query hardcoded in `src/backend/main.py`.
-
-### Future CLI
-There is also a CLI defined in `src/frontend/cli.py` that will be used to query or chat with the corpus in the future. At the moment it is not hooked up to the backend, but soon will be. Here are the commands you can run via the `src/frontend/cli` module:
-
 1. **Single Query**
 
    To ask a single question and get results:
 
    ```bash
-   python src/frontend/cli.py query "Your question here"
+   python -m src.frontend.cli query "Your question here"
    ```
 
-   Options:
-   - `--num-results`: Specify the number of results to return (default is 3)
-   - `--source-file`: Optionally specify a particular file to query from
-
-   Example:
-   ```bash
-   python src/frontend/cli.py query "What is the main conclusion of the report?" --num-results 5
-   ```
+   Optional arguments that can be specified to tailor results can be viewed by running `python -m src.frontend.cli. query --help`
 
 2. **Interactive Chat**
 
    To start an interactive chat session:
 
    ```bash
-   python src/frontend/cli.py chat
+   python -m src.frontend.cli chat
    ```
 
    In chat mode, you can ask multiple questions in succession. The chat maintains context, potentially providing more relevant answers based on the conversation history. Type 'exit', 'quit', or 'bye' to end the chat session.
 
+   Optional arguments that can be specified to tailor results can be viewed by running `python -m src.frontend.cli. chat --help`
+
 ### Notes
 
-- Currently, the CLI provides dummy responses. Actual document querying functionality will be implemented in future versions.
-- The chat mode maintains a context of up to 10 recent interactions to inform its responses.
-
-For more information on usage and available commands, you can use the built-in help:
-
-```bash
-python src/frontend/cli.py --help
-```
-
-Or for help on a specific command:
-
-```bash
-python src/frontend/cli.py query --help
-python src/frontend/cli.py chat --help
-```
+- Currently, both CLI commands (`query` and `chat`) are just performing (hybrid) retrieval, like RAG without the 'G' step. Synthesizing retrieved passages into a cohesive answer using an LLM is a future feature. My technical objective is to keep answers always grounded in specific retrieved source material passages.
