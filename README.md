@@ -15,32 +15,15 @@ pip-compile requirements.in -o requirements.txt --resolver=backtracking
 pip install -r requirements.txt
 ```
 
+### Secrets / API Keys.
+To run successfully, you'll need to create a `secrets.yaml` file in the root directory of the project. It should look like [`secrets_example.yaml`](secrets_example.yaml), but with your actual values filled in.
+
+
 ## Usage
+AskLiz2 currently provides a command-line interface (CLI) for submitting a query to the document. 
 
-AskLiz2 currently provides a command-line interface (CLI) for either one-off queryies, or chatting with the document database. 
+To ask a single question and get results:
 
-1. **Single Query**
-
-   To ask a single question and get results:
-
-   ```bash
-   python -m src.frontend.cli query "Your question here"
-   ```
-
-   Optional arguments that can be specified to tailor results can be viewed by running `python -m src.frontend.cli. query --help`
-
-2. **Interactive Chat**
-
-   To start an interactive chat session:
-
-   ```bash
-   python -m src.frontend.cli chat
-   ```
-
-   In chat mode, you can ask multiple questions in succession. The chat maintains context, potentially providing more relevant answers based on the conversation history. Type 'exit', 'quit', or 'bye' to end the chat session.
-
-   Optional arguments that can be specified to tailor results can be viewed by running `python -m src.frontend.cli. chat --help`
-
-### Notes
-
-- Currently, both CLI commands (`query` and `chat`) are just performing (hybrid) retrieval, like RAG without the 'G' step. Synthesizing retrieved passages into a cohesive answer using an LLM is a future feature. My technical objective is to keep answers always grounded in specific retrieved source material passages.
+```bash
+python -m src.frontend.cli "Your question here"
+```

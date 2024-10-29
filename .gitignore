@@ -1,3 +1,4 @@
 secrets.yaml
 src/backend/lancedb/*
 *__pycache__*
+*/scratch/*
