@@ -1,3 +1,4 @@
+google-generativeai>=0.8.3
 lancedb>=0.14.0
 llama-index>=0.11.18
 prompt_toolkit>=3.0.48

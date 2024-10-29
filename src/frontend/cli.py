@@ -38,8 +38,8 @@ def query(
     table = get_or_setup_db(reindex_docs)
 
     """Query the document database and get answers with citations."""
-    results = query_documents(table, query, num_results, source_file)
-    display_query_results(results)
+    response = query_documents(table, query, num_results, source_file)
+    console.print(Panel(response))
 
 @app.command()
 def chat():
