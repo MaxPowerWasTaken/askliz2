@@ -3,7 +3,7 @@ import streamlit as st
 
 from src.backend.main import query_documents
 from src.backend.database.operations import get_or_setup_db
-from src.backend.config import DB_PATH, N_RESULTS_RETRIEVED, N_RESULTS_PRESENTED
+from src.backend.config import N_RESULTS_RETRIEVED, N_RESULTS_PRESENTED
 
 def main():
     st.title("Document Query System")
@@ -19,9 +19,7 @@ def main():
     query = st.text_input("Enter your question or query")
     
     if query:
-        ldb = lancedb.connect(DB_PATH)
-        table = get_or_setup_db(reindex_docs)
-        
+        table = get_or_setup_db(reindex=reindex_docs)        
         response = query_documents(table, query, num_results_presented=N_RESULTS_PRESENTED)
         st.write(response)
 

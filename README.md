@@ -20,10 +20,10 @@ To run successfully, you'll need to create a `secrets.yaml` file in the root dir
 
 
 ## Usage
-AskLiz2 currently provides a command-line interface (CLI) for submitting a query to the document. 
+AskLiz2 is a minimal streamlit app providing a simple interface to query the final report of the January 6th Select Committee. To launch the app, run:
 
 To ask a single question and get results:
 
 ```bash
-python -m src.frontend.cli "Your question here"
+PYTHONPATH=. streamlit run src/frontend/main.py
 ```
