@@ -1,5 +1,5 @@
 import google.generativeai as genai
-import yaml
+import streamlit as st
 
 from sentence_transformers import SentenceTransformer
 import lancedb
@@ -15,10 +15,8 @@ N_RESULTS_RETRIEVED = 10  # Number of results retrieved for re-ranking
 N_RESULTS_PRESENTED = 3   # Number of top results from re-ranker to present to user (via LLM)
 
 # Load secrets
-with open("secrets.yaml", "r") as f:
-    secrets = yaml.safe_load(f)
-    GEMINI_API_KEY = secrets["llm_providers"]["gemini"]["api_key"]
-    LANCEDB_API_KEY = secrets["DBs"]["lancedb"]["api_key"]
+GEMINI_API_KEY = st.secrets["gemini"]["api_key"]
+LANCEDB_API_KEY = st.secrets["lancedb"]["api_key"]
 
 # Load embedding model
 embedding_model = get_registry().get(EMBEDDING_MODEL[0]).create(name=EMBEDDING_MODEL[1])
